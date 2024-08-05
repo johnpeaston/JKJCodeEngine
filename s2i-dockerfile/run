@@ -25,7 +25,6 @@ function clean() {
 
 clean
 [[ "$1" == "clean" ]] && exit 0
-exit 0
 
 # Grab the ICR server location based no our region
 # export ICR=$(ibmcloud cr info | sed -n 's/.*Registry   *\(.*icr.io\).*/\1/p')
