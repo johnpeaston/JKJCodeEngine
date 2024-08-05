@@ -13,8 +13,8 @@ function clean() {
   # ibmcloud cr namespace-rm "${ICR_NS}" -f
   ibmcloud ce app delete -n s2i-dockerfile -f
   # ibmcloud ce registry delete -n s2i-dicr -f
-  ibmcloud ce buildrun delete -n s2i-drun -f
-  ibmcloud ce build delete -n s2i-dbuild -f
+  ibmcloud ce buildrun delete -n jkj-codengine-drun -f
+  ibmcloud ce build delete -n jkj-codengine-dbuild -f
   # ibmcloud iam api-keys | grep s2i-dapi | sed "s/.*\(ApiKey\)/\1/" | while read a
   # do
   #   ibmcloud iam api-key-delete -f $a
@@ -47,7 +47,7 @@ ibmcloud ce build create -n jkj-codengine-dbuild -i "$ICR/${ICR_NS}/app" --rs jk
   --source https://github.com/johnpeaston/JKJCodeEngine --context-dir s2i-dockerfile
 
 # Now kick off the build itself
-ibmcloud ce buildrun submit -n s2i-drun --build s2i-dbuild --wait
+ibmcloud ce buildrun submit -n jkj-codengine-drun --build jkj-codengine-dbuild --wait
 
 # Test the image we just built - deploy an app and 'curl' it
 # ibmcloud ce app create -n s2i-dockerfile --image "$ICR/${ICR_NS}/app" --rs s2i-dicr
@@ -64,4 +64,4 @@ ibmcloud ce buildrun submit -n s2i-drun --build s2i-dbuild --wait
 ibmcloud ce job create -n jkj-codeengine-s2i-dfile --image "$ICR/${ICR_NS}/app" --rs jkj-codengine-dicr
 
 # Clean
-clean
+# clean
