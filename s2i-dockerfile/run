@@ -61,7 +61,7 @@ ibmcloud ce buildrun submit -n jkj-codengine-drun --build jkj-codengine-dbuild -
 # fi
 
 # Test the image we just built - deploy an app and 'curl' it
-# ibmcloud ce job create -n jkj-codeengine-s2i-dfile --image "$ICR/${ICR_NS}/app" --rs jkj-codengine-dicr
+ibmcloud ce job create -n jkj-codeengine-s2i-dfile --image "$ICR/${ICR_NS}/app" --rs jkj-codengine-dicr
 
 # Clean
 # clean
