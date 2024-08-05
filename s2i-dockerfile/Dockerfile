@@ -1,8 +1,4 @@
 FROM icr.io/codeengine/golang:alpine
-COPY app.sh /
-RUN cp /app.sh /app
-
-# Copy the exe into a smaller base image
-FROM icr.io/codeengine/alpine
-COPY --from=0 /app.sh /app
-CMD /app
+COPY app.sh /app.sh
+RUN /bin/bash -c '/app.sh'
+# CMD /app.sh
