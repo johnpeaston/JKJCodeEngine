@@ -63,7 +63,7 @@ ibmcloud ce job create -n cos-job \
     --image registry.access.redhat.com/ubi8/ubi-minimal:latest \
     --arg "/bin/sh" \
     --arg "-c" \
-    --arg "env"
+    --arg "date"
 
 # Setup the COS Event Source
 # ibmcloud ce sub cos create -n cos-sub -d cos-job --destination-type job -b ${BUCKET}
