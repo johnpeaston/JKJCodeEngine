@@ -33,16 +33,17 @@ export ICR="uk.icr.io"
 set -ex
 
 # Create an ICR namespace to hold our new image
-ibmcloud cr namespace-add $ICR_NS
+# ibmcloud cr namespace-add $ICR_NS
 
 # Create an apikey, put it in a registry secret. Used to push/pull image to ICR
-ibmcloud iam api-key-create s2i-dapi | \
-  grep "API Key" | sed 's/^.*Key  *//' | sed "s/ *$//" > .ce-reg-secret
-ibmcloud ce registry create -n s2i-dicr -s $ICR -u iamapikey \
-  --password-from-file .ce-reg-secret
+# ibmcloud iam api-key-create jkj-codeengine-apikey | \
+#   grep "API Key" | sed 's/^.*Key  *//' | sed "s/ *$//" > .ce-reg-secret
+
+# ibmcloud ce registry create -n jkj-codengine-dicr -s $ICR -u iamapikey \
+#   --password-from-file .ce-reg-secret
 
 # Define the build of this dir in this github repo
-ibmcloud ce build create -n s2i-dbuild -i "$ICR/${ICR_NS}/app" --rs s2i-dicr \
+ibmcloud ce build create -n s2i-dbuild -i "$ICR/${ICR_NS}/app" --rs jkj-codengine-dicr \
   --source https://github.com/johnpeaston/JKJCodeEngine --context-dir s2i-dockerfile
 
 # Now kick off the build itself
@@ -60,7 +61,7 @@ ibmcloud ce buildrun submit -n s2i-drun --build s2i-dbuild --wait
 # fi
 
 # Test the image we just built - deploy an app and 'curl' it
-# ibmcloud ce job create -n s2i-dockerfile --image "$ICR/${ICR_NS}/app" --rs s2i-dicr
+# ibmcloud ce job create -n s2i-dockerfile --image "$ICR/${ICR_NS}/app" --rs jkj-codengine-dicr
 
 # Clean
 clean
