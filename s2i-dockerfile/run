@@ -11,7 +11,7 @@ function clean() {
   echo Cleaning...
   (
   # ibmcloud cr namespace-rm "${ICR_NS}" -f
-  ibmcloud ce app delete -n s2i-dockerfile -f
+  ibmcloud ce job delete -n jkj-codeengine-s2i-dfile -f
   # ibmcloud ce registry delete -n s2i-dicr -f
   ibmcloud ce buildrun delete -n jkj-codengine-drun -f
   ibmcloud ce build delete -n jkj-codengine-dbuild -f
