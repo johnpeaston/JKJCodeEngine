@@ -6,7 +6,7 @@
 env
 
 OUTPUTDATAFILE=/go/xxx.$JOB_INDEX
-#echo $OUTPUTDATAFILE
+echo $OUTPUTDATAFILE
 
 export BUCKET="jkj-hpc-cos-bucket1"
 
