@@ -15,6 +15,7 @@ INDEX=13
 # Cleanup
 echo "Cleanup..."
 rm -f $HOME/Downloads/DATAFILE
+rm -f $HOME/Downloads/xxx
 
 # Get datafile from COS
 echo "Get datafile from COS bucket"
@@ -35,8 +36,12 @@ do
         if [[ $LINE == $INDEX ]]
         then
                 INPUTDATA=`echo $line | cut -f2 -d','`
-                echo $INPUTDATA
+                echo $INPUTDATA >> $HOME/Downloads/xxx.$INDEX
         fi
 done < $HOME/Downloads/DATAFILE
+
+# Put output datafile to COS
+echo "Put output datafile to COS..."
+ibmcloud cos object-put --bucket jkj-hpc-cos-bucket1 --key DATAFILE --body $HOME/Downloads/xxx.$INDEX  --region us-east
 
 exit 0
