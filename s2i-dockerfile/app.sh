@@ -2,15 +2,15 @@
 #
 # Test app
 #
-echo "This is my test app"
-echo "This is my test app"
-echo "This is my test app"
-echo "This is my test app"
-echo "This is my test app"
+# echo "This is my test app"
+# echo "This is my test app"
+# echo "This is my test app"
+# echo "This is my test app"
+# echo "This is my test app"
 
 env
 
-OUTPUTDATAFILE=$HOME/Downloads/xxx.$INDEX
+OUTPUTDATAFILE=$HOME/Downloads/xxx.$JOB_INDEX
 #echo $OUTPUTDATAFILE
 
 export BUCKET="jkj-hpc-cos-bucket1"
