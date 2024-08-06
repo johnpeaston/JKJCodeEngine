@@ -2,11 +2,6 @@
 #
 # Test app
 #
-# echo "This is my test app"
-# echo "This is my test app"
-# echo "This is my test app"
-# echo "This is my test app"
-# echo "This is my test app"
 
 env
 
@@ -26,7 +21,9 @@ ibmcloud cos object-get --bucket ${BUCKET} --key DATAFILE  --region us-east
 
 # check datafile is OK
 # echo "cat datafile..."
-# cat /go/DATAFILE
+cat /go/DATAFILE
+
+exit 0
 
 # Process datafile
 # echo "Processing datafile..."
