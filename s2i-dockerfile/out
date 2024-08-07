@@ -4,8 +4,8 @@ OK
 jkj-codeengine-s2i-run1-0-0/jkj-codeengine-s2i-dfile:    
 CE_REGION=eu-gb  
 CE_JOB=jkj-codeengine-s2i-dfile  
-KUBERNETES_PORT=tcp://172.21.0.1:443  
 KUBERNETES_SERVICE_PORT=443  
+KUBERNETES_PORT=tcp://172.21.0.1:443  
 JOB_INDEX=0  
 JOB_RETRY_LIMIT=3  
 HOSTNAME=jkj-codeengine-s2i-run1-0-0  
@@ -32,6 +32,9 @@ JOB_MODE=task
 GOLANG_VERSION=1.22.5  
 JOB_INDEX= 0  
 Processing datafile...  
+0  
+0  
+in if test  
 1  
 0  
 2  

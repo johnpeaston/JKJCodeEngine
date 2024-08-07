@@ -49,9 +49,9 @@ do
  	if [ $LINE = $JOB_INDEX ]
  	then
 		echo "in if test"
- 		# INPUTDATA=`echo $line | cut -f2 -d','`
-		#echo $INPUTDATA
-#               #echo $INPUTDATA > $OUTPUTDATAFILE
+ 		INPUTDATA=`echo $line | cut -f2 -d','`
+		echo $INPUTDATA
+#               echo $INPUTDATA > $OUTPUTDATAFILE
  	fi
 done < /go/DATAFILE
 
