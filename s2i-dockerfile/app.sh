@@ -28,13 +28,11 @@ ibmcloud cos object-get --bucket ${BUCKET} --key DATAFILE  --region us-east /go/
 # cat /go/DATAFILE
 
 # TEST
-echo "TEST"
-if [ $JOB_INDEX = "0" ]
-then
-	echo "JOBINDEX=0"
-fi
-
-exit 0
+# echo "TEST"
+# if [ $JOB_INDEX = "0" ]
+# then
+# 	echo "JOBINDEX=0"
+# fi
 
 # Process datafile
 touch /go/xxx.$JOB_INDEX
@@ -46,11 +44,11 @@ do
 	# sleep 1
  	LINE=`echo $line | cut -f1 -d','`
 	echo $LINE
-# 	if [ $LINE = $JOB_INDEX ]
-# 	then
-# 		INPUTDATA=`echo $line | cut -f2 -d','`
+ 	if [ $LINE = $JOB_INDEX ]
+ 	then
+ 		INPUTDATA=`echo $line | cut -f2 -d','`
 		# echo $INPUTDATA
-# 		echo "INPUTDATA is "$INPUTDATA
+ 		echo "INPUTDATA is "$INPUTDATA
 #                echo $INPUTDATA > /go/xxx.$JOB_INDEX
 # 	fi
 done < /go/DATAFILE
