@@ -26,31 +26,17 @@ rm -f $OUTPUTDATAFILE
 # echo "cat datafile..."
 # cat /go/DATAFILE
 
-# TEST
-# echo "TEST"
-# if [ $JOB_INDEX = "0" ]
-# then
-# 	echo "JOBINDEX=0"
-# fi
-
 # Process datafile
 touch /$OUTPUTDATAFILE
 
-echo "Processing datafile..."
+# Processing datafile...
 while IFS=  read -r line
 do
-	# echo $line
-	# sleep 1
  	LINE=`echo $line | cut -f1 -d','`
-	# echo $LINE
-	# echo $JOB_INDEX
- 	# INPUTDATA=`echo $line | cut -f2 -d','`
-	# echo $INPUTDATA
  	if [ $LINE = $JOB_INDEX ]
  	then
-		echo "in if test"
  		INPUTDATA=`echo $line | cut -f2 -d','`
-		echo $INPUTDATA
+		# echo $INPUTDATA
                 echo $INPUTDATA > $OUTPUTDATAFILE
  	fi
 done < /go/DATAFILE
