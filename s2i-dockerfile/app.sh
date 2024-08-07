@@ -4,6 +4,7 @@
 #
 
 env
+exit 0
 
 echo "JOB_INDEX= "$JOB_INDEX
 OUTPUTDATAFILE=/go/xxx.$JOB_INDEX
