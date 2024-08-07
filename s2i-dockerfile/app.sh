@@ -42,8 +42,8 @@ do
 	# echo $line
 	# sleep 1
  	LINE=`echo $line | cut -f1 -d','`
-	echo $LINE
-	echo $JOB_INDEX
+	# echo $LINE
+	# echo $JOB_INDEX
  	# INPUTDATA=`echo $line | cut -f2 -d','`
 	# echo $INPUTDATA
  	if [ $LINE = $JOB_INDEX ]
@@ -51,7 +51,7 @@ do
 		echo "in if test"
  		INPUTDATA=`echo $line | cut -f2 -d','`
 		echo $INPUTDATA
-#               echo $INPUTDATA > $OUTPUTDATAFILE
+                echo $INPUTDATA > $OUTPUTDATAFILE
  	fi
 done < /go/DATAFILE
 
