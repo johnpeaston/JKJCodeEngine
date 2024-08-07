@@ -36,6 +36,5 @@ OK
 Successfully stored your service instance ID.  
 OK  
 Successfully switched to IAM-based authentication. The program will access your Cloud Object Storage account using your IAM Credentials.  
-Are you sure you would like to continue? [y/N]>   
-Operation canceled.  
-WARNING: An object with the name 'DATAFILE' already exists at '/go'.  
+FAILED  
+auth.iam.logout: Login Required  
