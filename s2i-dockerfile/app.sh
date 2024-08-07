@@ -42,8 +42,7 @@ do
 done < /go/DATAFILE
 
 # Show output file
-echo "Show output file..."
-cat $OUTPUTDATAFILE 
+#cat $OUTPUTDATAFILE 
 
 # Put output datafile to COS
 # echo "Put output datafile to COS..."
