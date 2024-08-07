@@ -49,7 +49,7 @@ do
  		INPUTDATA=`echo $line | cut -f2 -d','`
 		echo $INPUTDATA
 #                echo $INPUTDATA > /go/xxx.$JOB_INDEX
-# 	fi
+ 	fi
 done < /go/DATAFILE
 
 # Show output file
