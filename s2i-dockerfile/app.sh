@@ -19,9 +19,13 @@ CID="crn:v1:bluemix:public:cloud-object-storage:global:a/b5e2b6b228eb4f2499d46b7
 #     awk '/^ID/{ print $2 }')
 # fi
 
+# Login stuff
+ibmcloud login --apikey YmpM7TndxtTn2loiobNwOQhF8S9bZSgGrH95zlZX55OR
+ibmcloud target -g Default
+
 # Set the COS config to use this instance
 # ibmcloud cos config crn --crn $CID --force
-ibmcloud cos config auth --method IAM
+# ibmcloud cos config auth --method IAM
 
 # Cleanup
 # echo "Cleanup..."
