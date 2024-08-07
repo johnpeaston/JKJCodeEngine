@@ -34,17 +34,7 @@ JOB_INDEX= 0
 Saving new Service Instance ID...  
 OK  
 Successfully stored your service instance ID.  
-FAILED  
-Command does not support Flag '--force'  
-NAME:   
-   ibmcloud cos config auth - Switch between HMAC and IAM authentication  
-  
-USAGE:  
-   ibmcloud cos config auth [--list] [--method METHOD]  
-  
-OPTIONS:  
-   --list           List configuration values.  
-   --method METHOD  Authentication METHOD.  
-  
+OK  
+Successfully switched to IAM-based authentication. The program will access your Cloud Object Storage account using your IAM Credentials.  
 FAILED  
 auth.iam.logout: Login Required  
