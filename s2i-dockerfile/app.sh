@@ -16,7 +16,7 @@ export BUCKET="jkj-hpc-cos-bucket1"
 # Cleanup
 # echo "Cleanup..."
 # rm -f /go/DATAFILE
-rm -f /go/xxx.*
+rm -f $OUTPUTDATAFILE
 
 # Get datafile from COS
 # echo "Get datafile from COS bucket"
@@ -34,7 +34,7 @@ rm -f /go/xxx.*
 # fi
 
 # Process datafile
-touch /go/xxx.$JOB_INDEX
+touch /$OUTPUTDATAFILE
 
 # echo "Processing datafile..."
 while IFS=  read -r line
@@ -49,24 +49,13 @@ do
 		echo "in if test"
  		INPUTDATA=`echo $line | cut -f2 -d','`
 		echo $INPUTDATA
-#                echo $INPUTDATA > /go/xxx.$JOB_INDEX
+#                echo $INPUTDATA > $OUTPUTDATAFILE
  	fi
 done < /go/DATAFILE
 
-while IFS=  read -r line
-do
- 	LINE=`echo $line | cut -f1 -d','`
- 	INPUTDATA=`echo $line | cut -f2 -d','`
- 	if [ $LINE = $JOB_INDEX ]
- 	then
- 		INPUTDATA=`echo $line | cut -f2 -d','`
-                echo $INPUTDATA > xxx.$JOB_INDEX
- 	fi
-done < DATAFILE
-
 # Show output file
 echo "Show output file..."
-cat /go/xxx.$JOB_INDEX
+cat $OUTPUTDATAFILE 
 
 # Put output datafile to COS
 # echo "Put output datafile to COS..."
