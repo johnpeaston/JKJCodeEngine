@@ -14,7 +14,7 @@ export BUCKET="jkj-hpc-cos-bucket1"
 # Login stuff
 
 # Cleanup
-echo "Cleanup..."
+#echo "Cleanup..."
 # rm -f /go/DATAFILE
 rm -f $OUTPUTDATAFILE
 
@@ -39,13 +39,13 @@ touch /$OUTPUTDATAFILE
 echo "Processing datafile..."
 while IFS=  read -r line
 do
-	echo $line
+	# echo $line
 	# sleep 1
  	LINE=`echo $line | cut -f1 -d','`
 	echo $LINE
 	echo $JOB_INDEX
- 	INPUTDATA=`echo $line | cut -f2 -d','`
-	echo $INPUTDATA
+ 	# INPUTDATA=`echo $line | cut -f2 -d','`
+	# echo $INPUTDATA
  	if [ $LINE = $JOB_INDEX ]
  	then
 		echo "in if test"
