@@ -12,6 +12,10 @@ OUTPUTDATAFILE=/go/xxx.$JOB_INDEX
 export BUCKET="jkj-hpc-cos-bucket1"
 
 # Login stuff
+CID="crn:v1:bluemix:public:cloud-object-storage:global:a/b5e2b6b228eb4f2499d46b73cb1c5db9:f420cab2-83e9-4d93-b37a-41eb5c64dced::"
+# Set the COS config to use this instance
+ibmcloud cos config crn --crn $CID --force
+ibmcloud cos config auth --method IAM
 
 # Cleanup
 #echo "Cleanup..."
@@ -20,7 +24,9 @@ rm -f $OUTPUTDATAFILE
 
 # Get datafile from COS
 # echo "Get datafile from COS bucket"
-# ibmcloud cos object-get --bucket ${BUCKET} --key DATAFILE  --region us-east /go/DATAFILE
+ibmcloud cos object-get --bucket ${BUCKET} --key DATAFILE  --region us-east /go/DATAFILE
+
+exit 0
 
 # check datafile is OK
 # echo "cat datafile..."
