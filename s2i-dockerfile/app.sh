@@ -41,10 +41,11 @@ do
 	echo $line
 	# sleep 1
  	LINE=`echo $line | cut -f1 -d','`
-	echo $LINE
-	echo $JOB_INDEX
+	#echo $LINE
+	#echo $JOB_INDEX
  	if [ $LINE = $JOB_INDEX ]
  	then
+		echo "in if test"
  		INPUTDATA=`echo $line | cut -f2 -d','`
 		echo $INPUTDATA
 #                echo $INPUTDATA > /go/xxx.$JOB_INDEX
@@ -57,7 +58,7 @@ cat /go/xxx.$JOB_INDEX
 
 # Put output datafile to COS
 # echo "Put output datafile to COS..."
-ibmcloud cos object-put --bucket ${BUCKET} --key Output.$JOB_INDEX --body ${OUTPUTDATAFILE}  --region us-east
+#ibmcloud cos object-put --bucket ${BUCKET} --key Output.$JOB_INDEX --body ${OUTPUTDATAFILE}  --region us-east
 
 exit 0
 
