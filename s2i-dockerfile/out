@@ -24,17 +24,19 @@ GOPATH=/go
 CE_SUBDOMAIN=1ib24m6ak6at  
 CE_DOMAIN=eu-gb.codeengine.appdomain.cloud  
 JOB_ARRAY_SIZE=1  
-KUBERNETES_SERVICE_PORT_HTTPS=443  
 KUBERNETES_PORT_443_TCP=tcp://172.21.0.1:443  
+KUBERNETES_SERVICE_PORT_HTTPS=443  
 KUBERNETES_SERVICE_HOST=172.21.0.1  
 PWD=/go  
 JOB_MODE=task  
 GOLANG_VERSION=1.22.5  
 JOB_INDEX= 0  
+config auth  
+OK  
+Successfully switched to IAM-based authentication. The program will access your Cloud Object Storage account using your IAM Credentials.  
+config crn  
 Saving new Service Instance ID...  
 OK  
 Successfully stored your service instance ID.  
-OK  
-Successfully switched to IAM-based authentication. The program will access your Cloud Object Storage account using your IAM Credentials.  
 FAILED  
 auth.iam.logout: Login Required  
