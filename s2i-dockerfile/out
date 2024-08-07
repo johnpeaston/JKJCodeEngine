@@ -4,14 +4,15 @@ OK
 jkj-codeengine-s2i-run1-0-0/jkj-codeengine-s2i-dfile:    
 CE_REGION=eu-gb  
 CE_JOB=jkj-codeengine-s2i-dfile  
-KUBERNETES_SERVICE_PORT=443  
 KUBERNETES_PORT=tcp://172.21.0.1:443  
+KUBERNETES_SERVICE_PORT=443  
 JOB_INDEX=0  
 JOB_RETRY_LIMIT=3  
 HOSTNAME=jkj-codeengine-s2i-run1-0-0  
 SHLVL=1  
 HOME=/root  
 CE_PROJECT_ID=9cb8f55f-936a-419d-878e-b6dcf43e364a  
+CLOUD_LOGIN=lPUrp6IwAJb1yG8FARR63Gsq5pixEYh0dRBKVLWEa-g-  
 GOTOOLCHAIN=local  
 CE_JOBRUN=jkj-codeengine-s2i-run1  
 CE_API_BASE_URL=https://api.eu-gb.codeengine.cloud.ibm.com  
@@ -24,19 +25,9 @@ GOPATH=/go
 CE_SUBDOMAIN=1ib24m6ak6at  
 CE_DOMAIN=eu-gb.codeengine.appdomain.cloud  
 JOB_ARRAY_SIZE=1  
-KUBERNETES_SERVICE_PORT_HTTPS=443  
 KUBERNETES_PORT_443_TCP=tcp://172.21.0.1:443  
+KUBERNETES_SERVICE_PORT_HTTPS=443  
 KUBERNETES_SERVICE_HOST=172.21.0.1  
 PWD=/go  
 JOB_MODE=task  
 GOLANG_VERSION=1.22.5  
-JOB_INDEX= 0  
-config auth  
-OK  
-Successfully switched to IAM-based authentication. The program will access your Cloud Object Storage account using your IAM Credentials.  
-config crn  
-Saving new Service Instance ID...  
-OK  
-Successfully stored your service instance ID.  
-FAILED  
-auth.iam.logout: Login Required  
