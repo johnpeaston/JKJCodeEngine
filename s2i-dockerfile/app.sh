@@ -31,9 +31,9 @@ ibmcloud cos object-get --bucket ${BUCKET} --key DATAFILE  --region us-east /go/
 touch /go/xxx.$JOB_INDEX
 
 # echo "Processing datafile..."
-# while read -r line
-# do
-	# echo $line
+while IFS=  read -r line
+do
+	echo $line
 	# sleep 1
 # 	LINE=`echo $line | cut -f1 -d','`
 	# echo $LINE
@@ -44,11 +44,7 @@ touch /go/xxx.$JOB_INDEX
 # 		echo "INPUTDATA is "$INPUTDATA
  #                echo $INPUTDATA > /go/xxx.$JOB_INDEX
 # 	fi
-# done < /go/DATAFILE
-while IFS= read -r line
-do
-    echo "Text read from file: $line"
-done </go/DATAFILE
+done < /go/DATAFILE
 
 # Show output file
 echo "Show output file..."
