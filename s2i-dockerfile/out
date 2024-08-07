@@ -24,8 +24,8 @@ GOPATH=/go
 CE_SUBDOMAIN=1ib24m6ak6at  
 CE_DOMAIN=eu-gb.codeengine.appdomain.cloud  
 JOB_ARRAY_SIZE=1  
-KUBERNETES_SERVICE_PORT_HTTPS=443  
 KUBERNETES_PORT_443_TCP=tcp://172.21.0.1:443  
+KUBERNETES_SERVICE_PORT_HTTPS=443  
 KUBERNETES_SERVICE_HOST=172.21.0.1  
 PWD=/go  
 JOB_MODE=task  
@@ -53,7 +53,6 @@ GOLANG_VERSION=1.22.5
 19,"This is data 19",1234567890  
 20,"This is data 20",1234567890  
 # Datafile for code engine testing  
-sh: Datafile: unknown operand  
 1,"This is data 1",1234567890  
 2,"This is data 2",1234567890  
 3,"This is data 3",1234567890  
