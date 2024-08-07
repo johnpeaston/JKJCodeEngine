@@ -42,6 +42,7 @@ do
 	# sleep 1
  	LINE=`echo $line | cut -f1 -d','`
 	echo $LINE
+	echo $JOB_INDEX
  	if [ $LINE = $JOB_INDEX ]
  	then
  		INPUTDATA=`echo $line | cut -f2 -d','`
