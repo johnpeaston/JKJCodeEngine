@@ -43,7 +43,7 @@ do
  	LINE=`echo $line | cut -f1 -d','`
 	#echo $LINE
 	#echo $JOB_INDEX
- 	if [ $LINE = $JOB_INDEX ]
+ 	if [ LINE = $JOB_INDEX ]
  	then
 		echo "in if test"
  		INPUTDATA=`echo $line | cut -f2 -d','`
