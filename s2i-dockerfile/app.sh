@@ -9,6 +9,19 @@ OUTPUTDATAFILE=/go/xxx.$JOB_INDEX
 echo $OUTPUTDATAFILE
 
 export BUCKET="jkj-hpc-cos-bucket1"
+CID="crn:v1:bluemix:public:cloud-object-storage:global:a/b5e2b6b228eb4f2499d46b73cb1c5db9:f420cab2-83e9-4d93-b37a-41eb5c64dced::"
+
+# Create a COS instance unless one has been specified for use
+# if [[ $CID == "" ]]; then
+#   ibmcloud resource service-instance-create ce-cos-event \
+#     cloud-object-storage lite global
+#   CID=$(ibmcloud resource service-instance ce-cos-event | \
+#     awk '/^ID/{ print $2 }')
+# fi
+
+# Set the COS config to use this instance
+# ibmcloud cos config crn --crn $CID --force
+ibmcloud cos config auth --method IAM
 
 # Cleanup
 # echo "Cleanup..."
