@@ -4,8 +4,8 @@ OK
 jkj-codeengine-s2i-run1-0-0/jkj-codeengine-s2i-dfile:    
 CE_REGION=eu-gb  
 CE_JOB=jkj-codeengine-s2i-dfile  
-KUBERNETES_SERVICE_PORT=443  
 KUBERNETES_PORT=tcp://172.21.0.1:443  
+KUBERNETES_SERVICE_PORT=443  
 JOB_INDEX=0  
 JOB_RETRY_LIMIT=3  
 HOSTNAME=jkj-codeengine-s2i-run1-0-0  
@@ -74,7 +74,50 @@ OK
 Successfully downloaded 'DATAFILE' from bucket 'jkj-hpc-cos-bucket1'  
 Version ID: 00000191-271c-2b0c-3dcb-62cf50b7650d  
 657 B downloaded.  
+Processing datafile...  
+# Datafile for code engine testing  
+# Datafile for code engine testing  
+1,"This is data 1",1234567890  
 sh: Datafile: unknown operand  
+1  
+2,"This is data 2",1234567890  
+2  
+3,"This is data 3",1234567890  
+3  
+4,"This is data 4",1234567890  
+4  
+5,"This is data 5",1234567890  
+5  
+6,"This is data 6",1234567890  
+6  
+7,"This is data 7",1234567890  
+7  
+8,"This is data 8",1234567890  
+8  
+9,"This is data 9",1234567890  
+9  
+10,"This is data 10",1234567890  
+10  
+11,"This is data 11",1234567890  
+11  
+12,"This is data 12",1234567890  
+12  
+13,"This is data 13",1234567890  
+13  
+14,"This is data 14",1234567890  
+14  
+15,"This is data 15",1234567890  
+15  
+16,"This is data 16",1234567890  
+16  
+17,"This is data 17",1234567890  
+17  
+18,"This is data 18",1234567890  
+18  
+19,"This is data 19",1234567890  
+19  
+20,"This is data 20",1234567890  
+20  
 Show output file...  
 cat: can't open '/go/xxx.0': No such file or directory  
 FAILED  

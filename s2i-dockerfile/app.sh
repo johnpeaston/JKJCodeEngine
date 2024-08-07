@@ -9,23 +9,10 @@ OUTPUTDATAFILE=/go/xxx.$JOB_INDEX
 echo $OUTPUTDATAFILE
 
 export BUCKET="jkj-hpc-cos-bucket1"
-# CID="crn:v1:bluemix:public:cloud-object-storage:global:a/b5e2b6b228eb4f2499d46b73cb1c5db9:f420cab2-83e9-4d93-b37a-41eb5c64dced::"
-
-# Create a COS instance unless one has been specified for use
-# if [[ $CID == "" ]]; then
-#   ibmcloud resource service-instance-create ce-cos-event \
-#     cloud-object-storage lite global
-#   CID=$(ibmcloud resource service-instance ce-cos-event | \
-#     awk '/^ID/{ print $2 }')
-# fi
 
 # Login stuff
 ibmcloud login --apikey YmpM7TndxtTn2loiobNwOQhF8S9bZSgGrH95zlZX55OR
 ibmcloud target -g Default
-
-# Set the COS config to use this instance
-# ibmcloud cos config crn --crn $CID --force
-# ibmcloud cos config auth --method IAM
 
 # Cleanup
 # echo "Cleanup..."
@@ -41,14 +28,17 @@ ibmcloud cos object-get --bucket ${BUCKET} --key DATAFILE  --region us-east /go/
 # cat /go/DATAFILE
 
 # Process datafile
-echo "Processing datafile..."
+echo "touch /go/xxx."$JOB_INDEX
+touch /go/xxx.$JOB_INDEX
+
+# echo "Processing datafile..."
 while read -r line
 do
-	echo $line
+	# echo $line
 	# sleep 1
 	LINE=`echo $line | cut -f1 -d','`
-	echo $LINE
-	if [[ $LINE == $JOB_INDEX ]]
+	# echo $LINE
+	if [ $LINE = $JOB_INDEX ]
 	then
 		INPUTDATA=`echo $line | cut -f2 -d','`
 		# echo $INPUTDATA
