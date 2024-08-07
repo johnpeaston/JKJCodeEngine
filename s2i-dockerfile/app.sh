@@ -47,8 +47,7 @@ do
  	if [ $LINE = $JOB_INDEX ]
  	then
  		INPUTDATA=`echo $line | cut -f2 -d','`
-		# echo $INPUTDATA
- 		echo "INPUTDATA is "$INPUTDATA
+		echo $INPUTDATA
 #                echo $INPUTDATA > /go/xxx.$JOB_INDEX
 # 	fi
 done < /go/DATAFILE
