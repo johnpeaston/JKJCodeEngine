@@ -9,7 +9,7 @@ OUTPUTDATAFILE=/go/xxx.$JOB_INDEX
 echo $OUTPUTDATAFILE
 
 export BUCKET="jkj-hpc-cos-bucket1"
-CID="crn:v1:bluemix:public:cloud-object-storage:global:a/b5e2b6b228eb4f2499d46b73cb1c5db9:f420cab2-83e9-4d93-b37a-41eb5c64dced::"
+# CID="crn:v1:bluemix:public:cloud-object-storage:global:a/b5e2b6b228eb4f2499d46b73cb1c5db9:f420cab2-83e9-4d93-b37a-41eb5c64dced::"
 
 # Create a COS instance unless one has been specified for use
 # if [[ $CID == "" ]]; then
@@ -38,9 +38,7 @@ ibmcloud cos object-get --bucket ${BUCKET} --key DATAFILE  --region us-east /go/
 
 # check datafile is OK
 # echo "cat datafile..."
-cat /go/DATAFILE
-
-exit 0
+# cat /go/DATAFILE
 
 # Process datafile
 # echo "Processing datafile..."
@@ -59,8 +57,8 @@ do
 done < /go/DATAFILE
 
 # Show output file
-# echo "Show output file..."
-# cat /go/xxx.$JOB_INDEX
+echo "Show output file..."
+cat /go/xxx.$JOB_INDEX
 
 # Put output datafile to COS
 # echo "Put output datafile to COS..."
