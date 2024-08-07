@@ -5,8 +5,9 @@
 
 env
 
+echo "JOB_INDEX= "$JOB_INDEX
 OUTPUTDATAFILE=/go/xxx.$JOB_INDEX
-echo $OUTPUTDATAFILE
+echo "Output will be in: "$OUTPUTDATAFILE
 
 export BUCKET="jkj-hpc-cos-bucket1"
 
@@ -23,7 +24,7 @@ rm -f /go/xxx.*
 
 # check datafile is OK
 # echo "cat datafile..."
-cat /go/DATAFILE
+# cat /go/DATAFILE
 
 # TEST
 # echo "TEST"
@@ -38,12 +39,12 @@ touch /go/xxx.$JOB_INDEX
 # echo "Processing datafile..."
 while IFS=  read -r line
 do
-	echo $line
+	# echo $line
 	# sleep 1
  	LINE=`echo $line | cut -f1 -d','`
 	#echo $LINE
 	#echo $JOB_INDEX
- 	if [ LINE = $JOB_INDEX ]
+ 	if [ $LINE = $JOB_INDEX ]
  	then
 		echo "in if test"
  		INPUTDATA=`echo $line | cut -f2 -d','`
@@ -51,6 +52,17 @@ do
 #                echo $INPUTDATA > /go/xxx.$JOB_INDEX
  	fi
 done < /go/DATAFILE
+
+while IFS=  read -r line
+do
+ 	LINE=`echo $line | cut -f1 -d','`
+ 	INPUTDATA=`echo $line | cut -f2 -d','`
+ 	if [ $LINE = $JOB_INDEX ]
+ 	then
+ 		INPUTDATA=`echo $line | cut -f2 -d','`
+                echo $INPUTDATA > xxx.$JOB_INDEX
+ 	fi
+done < DATAFILE
 
 # Show output file
 echo "Show output file..."
