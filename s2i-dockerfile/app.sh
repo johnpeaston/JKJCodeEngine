@@ -12,11 +12,11 @@ OUTPUTDATAFILE=/go/xxx.$JOB_INDEX
 export BUCKET="jkj-hpc-cos-bucket1"
 
 # Login stuff
-ibmcloud login --apikey $CLOUD_LOGIN
+ibmcloud login --apikey $CLOUD_LOGIN -r eu-gb
 ibmcloud target -g Default
 
 # Test cos auth
-ibmcloud cos list-buckets
+#ibmcloud cos list-buckets
 exit 0
 
 # Cleanup

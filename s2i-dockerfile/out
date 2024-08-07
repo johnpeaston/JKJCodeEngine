@@ -31,3 +31,45 @@ KUBERNETES_SERVICE_HOST=172.21.0.1
 PWD=/go  
 JOB_MODE=task  
 GOLANG_VERSION=1.22.5  
+JOB_INDEX= 0  
+API endpoint: https://cloud.ibm.com  
+Authenticating...  
+OK  
+  
+Targeted account epx-demos (b5e2b6b228eb4f2499d46b73cb1c5db9) <-> 2635197  
+  
+  
+Select a region (or press enter to skip):  
+1. au-syd  
+2. in-che  
+3. jp-osa  
+4. jp-tok  
+5. eu-de  
+6. eu-es  
+7. eu-gb  
+8. ca-tor  
+9. us-south  
+10. us-south-test  
+11. us-east  
+12. br-sao  
+Enter a number>   
+                    
+API endpoint:     https://cloud.ibm.com  
+Region:             
+User:             JKJ@uk.ibm.com  
+Account:          epx-demos (b5e2b6b228eb4f2499d46b73cb1c5db9) <-> 2635197  
+Resource group:   No resource group targeted, use 'ibmcloud target -g RESOURCE_GROUP'  
+FAILED  
+Could not read from input: EOF  
+  
+Targeted resource group Default  
+  
+  
+                    
+API endpoint:     https://cloud.ibm.com  
+Region:             
+User:             JKJ@uk.ibm.com  
+Account:          epx-demos (b5e2b6b228eb4f2499d46b73cb1c5db9) <-> 2635197  
+Resource group:   Default  
+FAILED  
+Invalid Argument.  A valid service instance CRN must be configured to create or list buckets.  Verify the CRN using ‘ibmcloud cos config list’.  
