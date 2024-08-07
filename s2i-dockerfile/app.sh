@@ -15,10 +15,6 @@ export BUCKET="jkj-hpc-cos-bucket1"
 ibmcloud login --apikey $CLOUD_LOGIN -r eu-gb
 ibmcloud target -g Default
 
-# Test cos auth
-#ibmcloud cos list-buckets
-exit 0
-
 # Cleanup
 #echo "Cleanup..."
 # rm -f /go/DATAFILE
@@ -30,7 +26,9 @@ ibmcloud cos object-get --bucket ${BUCKET} --key DATAFILE  --region us-east /go/
 
 # check datafile is OK
 # echo "cat datafile..."
-# cat /go/DATAFILE
+cat /go/DATAFILE
+
+exit 0
 
 # Process datafile
 touch /$OUTPUTDATAFILE
