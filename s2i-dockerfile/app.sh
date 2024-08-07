@@ -17,7 +17,7 @@ rm -f /go/xxx.*
 
 # Get datafile from COS
 # echo "Get datafile from COS bucket"
-ibmcloud cos object-get --bucket ${BUCKET} --key DATAFILE  --region us-east
+ibmcloud cos object-get --bucket ${BUCKET} --key DATAFILE  --region us-east /go/DATAFILE
 
 # check datafile is OK
 # echo "cat datafile..."
