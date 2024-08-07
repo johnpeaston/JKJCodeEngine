@@ -26,9 +26,7 @@ ibmcloud cos object-get --bucket ${BUCKET} --key DATAFILE  --region us-east /go/
 
 # check datafile is OK
 # echo "cat datafile..."
-cat /go/DATAFILE
-
-exit 0
+#cat /go/DATAFILE
 
 # Process datafile
 touch /$OUTPUTDATAFILE
