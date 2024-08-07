@@ -21,11 +21,11 @@ PATH=/go/bin:/usr/local/go/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin
 KUBERNETES_PORT_443_TCP_PORT=443  
 KUBERNETES_PORT_443_TCP_PROTO=tcp  
 GOPATH=/go  
-CE_DOMAIN=eu-gb.codeengine.appdomain.cloud  
 CE_SUBDOMAIN=1ib24m6ak6at  
+CE_DOMAIN=eu-gb.codeengine.appdomain.cloud  
 JOB_ARRAY_SIZE=1  
-KUBERNETES_SERVICE_PORT_HTTPS=443  
 KUBERNETES_PORT_443_TCP=tcp://172.21.0.1:443  
+KUBERNETES_SERVICE_PORT_HTTPS=443  
 KUBERNETES_SERVICE_HOST=172.21.0.1  
 PWD=/go  
 JOB_MODE=task  
@@ -74,28 +74,28 @@ OK
 Successfully downloaded 'DATAFILE' from bucket 'jkj-hpc-cos-bucket1'  
 Version ID: 00000191-271c-2b0c-3dcb-62cf50b7650d  
 657 B downloaded.  
-Text read from file: # Datafile for code engine testing  
-Text read from file: 1,"This is data 1",1234567890  
-Text read from file: 2,"This is data 2",1234567890  
-Text read from file: 3,"This is data 3",1234567890  
-Text read from file: 4,"This is data 4",1234567890  
-Text read from file: 5,"This is data 5",1234567890  
-Text read from file: 6,"This is data 6",1234567890  
-Text read from file: 7,"This is data 7",1234567890  
-Text read from file: 8,"This is data 8",1234567890  
-Text read from file: 9,"This is data 9",1234567890  
-Text read from file: 10,"This is data 10",1234567890  
-Text read from file: 11,"This is data 11",1234567890  
-Text read from file: 12,"This is data 12",1234567890  
-Text read from file: 13,"This is data 13",1234567890  
-Text read from file: 14,"This is data 14",1234567890  
-Text read from file: 15,"This is data 15",1234567890  
-Text read from file: 16,"This is data 16",1234567890  
-Text read from file: 17,"This is data 17",1234567890  
-Text read from file: 18,"This is data 18",1234567890  
-Text read from file: 19,"This is data 19",1234567890  
-Text read from file: 20,"This is data 20",1234567890  
+# Datafile for code engine testing  
+1,"This is data 1",1234567890  
+2,"This is data 2",1234567890  
+3,"This is data 3",1234567890  
+4,"This is data 4",1234567890  
+5,"This is data 5",1234567890  
+6,"This is data 6",1234567890  
+7,"This is data 7",1234567890  
+8,"This is data 8",1234567890  
+9,"This is data 9",1234567890  
+10,"This is data 10",1234567890  
+11,"This is data 11",1234567890  
+12,"This is data 12",1234567890  
+13,"This is data 13",1234567890  
+14,"This is data 14",1234567890  
+15,"This is data 15",1234567890  
+16,"This is data 16",1234567890  
+17,"This is data 17",1234567890  
+18,"This is data 18",1234567890  
+19,"This is data 19",1234567890  
+20,"This is data 20",1234567890  
 Show output file...  
 OK  
 Successfully uploaded object 'Output.0' to bucket 'jkj-hpc-cos-bucket1'.  
-Version ID: 00000191-2c0e-31fd-d95a-43fe56fcd52e  
+Version ID: 00000191-2c11-fd35-de9d-ae5780b3117a  
