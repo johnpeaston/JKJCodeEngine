@@ -7,9 +7,16 @@
 # JOB_INDEX=5
 echo "JOB_INDEX= "$JOB_INDEX
 OUTPUTDATAFILE=/go/xxx.$JOB_INDEX
+#OUTPUTDATAFILE=xxx.$JOB_INDEX
 INPUTDATAFILE=/go/DATAFILE
-echo "Input will be in: "$INPUTDATAFILE
-echo "Output will be in: "$OUTPUTDATAFILE
+#INPUTDATAFILE=./DATAFILE
+# echo "Output will be in: "$OUTPUTDATAFILE
+
+export BUCKET="jkj-hpc-cos-bucket1"
+
+# Login stuff
+ibmcloud login --apikey $CLOUD_LOGIN -r eu-gb
+ibmcloud target -g Default
 
 # Cleanup
 #echo "Cleanup..."
@@ -18,11 +25,11 @@ rm -f $OUTPUTDATAFILE
 
 # Get datafile from COS
 # echo "Get datafile from COS bucket"
-# ibmcloud cos object-get --bucket ${BUCKET} --key DATAFILE  --region us-east /go/DATAFILE
+ibmcloud cos object-get --bucket ${BUCKET} --key DATAFILE  --region us-east /go/DATAFILE
 
 # check datafile is OK
-echo "cat datafile..."
-cat $INPUTDATAFILE
+# echo "cat datafile..."
+# cat $INPUTDATAFILE
 
 # Process datafile
 touch $OUTPUTDATAFILE
@@ -40,11 +47,11 @@ do
 done < $INPUTDATAFILE
 
 # Show output file
-cat $OUTPUTDATAFILE 
+# cat $OUTPUTDATAFILE 
 
 # Put output datafile to COS
 # echo "Put output datafile to COS..."
-# ibmcloud cos object-put --bucket ${BUCKET} --key Output.$JOB_INDEX --body ${OUTPUTDATAFILE}  --region us-east
+ibmcloud cos object-put --bucket ${BUCKET} --key Output.$JOB_INDEX --body ${OUTPUTDATAFILE}  --region us-east
 
 exit 0
 
