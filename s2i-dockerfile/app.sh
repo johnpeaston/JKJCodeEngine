@@ -24,7 +24,7 @@ CE_JOB_NAME=jkj-hpc-cosfs1
 MOUNT_NAME=jkj-hpc-cos-bucket1
 MOUNT_PATH=/mnt
 
-# set -euo pipefail
+set -euo pipefail
 
 echo ""
 echo "CE_JOB_NAME: '$CE_JOB_NAME'"
@@ -57,10 +57,10 @@ PATCH='[
   }
 ]'
 
-exit 0
-
 # Apply the patch
 kubectl 
+exit 0
+
 # kubectl patch jobdefinition  $CE_JOB_NAME --type='json' --patch "$PATCH"
 
 # echo "Patched job '$CE_JOB_NAME' with volume '$VOLUME_NAME' mounted at '$MOUNT_PATH'."
