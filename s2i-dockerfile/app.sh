@@ -5,10 +5,10 @@
 
 # env
 #JOB_INDEX=5
-echo "JOB_INDEX= "$JOB_INDEX
+# echo "JOB_INDEX= "$JOB_INDEX
 OUTPUTDATAFILE=/go/xxx.$JOB_INDEX
 #OUTPUTDATAFILE=./xxx.$JOB_INDEX
-INPUTDATAFILE=/go/DATAFILE
+# INPUTDATAFILE=/go/DATAFILE
 #INPUTDATAFILE=./DATAFILE
 #echo "Input will be in: "$INPUTDATAFILE
 #echo "Output will be in: "$OUTPUTDATAFILE
@@ -24,7 +24,7 @@ CE_JOB_NAME=jkj-hpc-cosfs1
 MOUNT_NAME=jkj-hpc-cos-bucket1
 MOUNT_PATH=/mnt
 
-set -euo pipefail
+# set -euo pipefail
 
 echo ""
 echo "CE_JOB_NAME: '$CE_JOB_NAME'"
@@ -33,6 +33,7 @@ echo "CE_MOUNT_PATH: '$MOUNT_PATH'"
 echo ""
 
 VOLUME_NAME=$1-$2
+exit 0
 
 # Create the JSON patch
 
