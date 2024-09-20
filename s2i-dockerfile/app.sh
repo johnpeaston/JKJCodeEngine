@@ -5,13 +5,13 @@
 
 # env
 #JOB_INDEX=5
-# echo "JOB_INDEX= "$JOB_INDEX
-OUTPUTDATAFILE=/go/xxx.$JOB_INDEX
+echo "JOB_INDEX= "$JOB_INDEX
+OUTPUTDATAFILE=/mnt/xxx.$JOB_INDEX
 #OUTPUTDATAFILE=./xxx.$JOB_INDEX
-# INPUTDATAFILE=/go/DATAFILE
+INPUTDATAFILE=/mnt/DATAFILE
 #INPUTDATAFILE=./DATAFILE
-#echo "Input will be in: "$INPUTDATAFILE
-#echo "Output will be in: "$OUTPUTDATAFILE
+echo "Input will be in: "$INPUTDATAFILE
+echo "Output will be in: "$OUTPUTDATAFILE
 
 # Cleanup
 #echo "Cleanup..."
@@ -33,7 +33,6 @@ echo "CE_MOUNT_PATH: '$MOUNT_PATH'"
 echo ""
 
 VOLUME_NAME=$1-$2
-exit 0
 
 # Create the JSON patch
 
@@ -57,6 +56,8 @@ PATCH='[
     }]
   }
 ]'
+
+exit 0
 
 # Apply the patch
 kubectl 
