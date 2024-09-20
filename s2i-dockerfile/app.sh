@@ -58,10 +58,11 @@ PATCH='[
 ]'
 
 # Apply the patch
-kubectl patch jobdefinition  $CE_JOB_NAME --type='json' --patch "$PATCH"
+kubectl 
+# kubectl patch jobdefinition  $CE_JOB_NAME --type='json' --patch "$PATCH"
 
-echo "Patched job '$CE_JOB_NAME' with volume '$VOLUME_NAME' mounted at '$MOUNT_PATH'."
-echo "Patched job '$CE_JOB_NAME' with volume '$VOLUME_NAME' mounted at '$MOUNT_PATH'." > $MOUNT_PATH/output_test
+# echo "Patched job '$CE_JOB_NAME' with volume '$VOLUME_NAME' mounted at '$MOUNT_PATH'."
+# echo "Patched job '$CE_JOB_NAME' with volume '$VOLUME_NAME' mounted at '$MOUNT_PATH'." > $MOUNT_PATH/output_test
 
 # Get datafile from COS
 # echo "Get datafile from COS bucket"

@@ -1,4 +1,5 @@
 FROM icr.io/codeengine/golang:alpine
+RUN apk add --no-cache kubectl
 COPY app.sh /root/app.sh
 COPY DATAFILE /go/DATAFILE
 RUN chmod +x /root/app.sh
