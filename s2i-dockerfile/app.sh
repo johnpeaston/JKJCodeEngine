@@ -63,6 +63,7 @@ kubectl
 
 # echo "Patched job '$CE_JOB_NAME' with volume '$VOLUME_NAME' mounted at '$MOUNT_PATH'."
 # echo "Patched job '$CE_JOB_NAME' with volume '$VOLUME_NAME' mounted at '$MOUNT_PATH'." > $MOUNT_PATH/output_test
+exit 0
 
 # Get datafile from COS
 # echo "Get datafile from COS bucket"
