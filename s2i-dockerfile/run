@@ -27,7 +27,7 @@ clean
 [[ "$1" == "clean" ]] && exit 0
 
 # Grab the ICR server location based no our region
-export ICR=$(ibmcloud cr info | sed -n 's/.*Registry   *\(.*icr.io\).*/\1/p')
+# export ICR=$(ibmcloud cr info | sed -n 's/.*Registry   *\(.*icr.io\).*/\1/p')
 export ICR="uk.icr.io"
 
 set -ex
@@ -49,19 +49,5 @@ ibmcloud ce build create -n jkj-codengine-dbuild -i "$ICR/${ICR_NS}/app" --rs jk
 # Now kick off the build itself
 ibmcloud ce buildrun submit -n jkj-codengine-drun --build jkj-codengine-dbuild --wait
 
-# Test the image we just built - deploy an app and 'curl' it
-# ibmcloud ce app create -n s2i-dockerfile --image "$ICR/${ICR_NS}/app" --rs s2i-dicr
-# URL=$(ibmcloud ce app get -n s2i-dockerfile -o url)
-# curl -fs "${URL}" | tee out
-# [[ "${PIPESTATUS[0]}" == "0" ]]
-# 
-# if ! grep "I was built"  out > /dev/null ; then
-#   echo "Missing expected outout"
-#   exit 1
-# fi
-
 # Create a job from the image we just built
 ibmcloud ce job create -n jkj-hpc-cosfs1 --image "$ICR/${ICR_NS}/app" --rs jkj-codengine-dicr
-
-# Clean
-# clean
