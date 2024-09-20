@@ -24,7 +24,7 @@ CE_JOB_NAME=jkj-hpc-cosfs1
 MOUNT_NAME=jkj-hpc-cos-bucket1
 MOUNT_PATH=/mnt
 
-set -euo pipefail
+# set -euo pipefail
 
 echo ""
 echo "CE_JOB_NAME: '$CE_JOB_NAME'"
