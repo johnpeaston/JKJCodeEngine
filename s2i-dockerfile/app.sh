@@ -61,7 +61,7 @@ PATCH='[
 kubectl patch jobdefinition  $CE_JOB_NAME --type='json' --patch "$PATCH"
 
 echo "Patched job '$CE_JOB_NAME' with volume '$VOLUME_NAME' mounted at '$MOUNT_PATH'."
-echo "Patched job '$CE_JOB_NAME' with volume '$VOLUME_NAME' mounted at '$MOUNT_PATH'." > $MOUNT_PATH/output_test
+touch $MOUNT_PATH/output_test
 exit 0
 
 # Get datafile from COS
@@ -90,7 +90,7 @@ do
 done < $INPUTDATAFILE
 
 # Show output file
-#cat $OUTPUTDATAFILE 
+cat $OUTPUTDATAFILE 
 
 # Put output datafile to COS
 # echo "Put output datafile to COS..."
