@@ -8,7 +8,7 @@ ICR_NS=jkj-codeengine-icr-ns
 # Clean up previous run
 function clean() {
   set +ex
-  echo Cleaning...
+  echo "Cleaning up from previous builds..."
   (
   # ibmcloud cr namespace-rm "${ICR_NS}" -f
   ibmcloud ce job delete -n jkj-hpc-cosfs1 -f
@@ -43,11 +43,14 @@ set -ex
 #  --password-from-file .ce-reg-secret
 
 # Define the build of this dir in this github repo
+echo "Define new build..."
 ibmcloud ce build create -n jkj-codengine-dbuild -i "$ICR/${ICR_NS}/app" --rs jkj-codengine-dicr \
   --source https://github.com/johnpeaston/JKJCodeEngine --context-dir s2i-dockerfile
 
 # Now kick off the build itself
+echo "Build new container image..."
 ibmcloud ce buildrun submit -n jkj-codengine-drun --build jkj-codengine-dbuild --wait
 
 # Create a job from the image we just built
+echo "Create new job from container image..."
 ibmcloud ce job create -n jkj-hpc-cosfs1 --image "$ICR/${ICR_NS}/app" --rs jkj-codengine-dicr
