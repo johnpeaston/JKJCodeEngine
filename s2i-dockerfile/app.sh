@@ -29,7 +29,9 @@ rm -f $OUTPUTDATAFILE
 # Process datafile
 #echo "outputfile is "
 #echo $OUTPUTDATAFILE
-touch $OUTPUTDATAFILE
+cp $INPUTDATAFILE $OUTPUTDATAFILE
+
+exit 0
 
 # Processing datafile...
 while IFS=  read -r line
