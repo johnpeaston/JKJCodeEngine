@@ -30,8 +30,6 @@ cat $INPUTDATAFILE >>/mnt/OUT
 echo "outputfile is " >>/mnt/OUT
 echo $OUTPUTDATAFILE >>/mnt/OUT
 
-exit 0
-
 # Processing datafile...
 while IFS=  read -r line
 do
