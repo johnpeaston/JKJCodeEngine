@@ -7,7 +7,7 @@ ICR_NS=jkj-codeengine-icr-ns
 
 # Clean up previous run
 function clean() {
-  set +ex
+  # set +ex
   echo "Cleaning up from previous builds..."
   (
   # ibmcloud cr namespace-rm "${ICR_NS}" -f
@@ -30,7 +30,7 @@ clean
 # export ICR=$(ibmcloud cr info | sed -n 's/.*Registry   *\(.*icr.io\).*/\1/p')
 export ICR="uk.icr.io"
 
-set -ex
+# set -ex
 
 # Create an ICR namespace to hold our new image
 # ibmcloud cr namespace-add $ICR_NS
