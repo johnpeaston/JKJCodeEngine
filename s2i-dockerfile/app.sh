@@ -5,16 +5,16 @@
 
 # env
 #JOB_INDEX=5
-echo "JOB_INDEX= "$JOB_INDEX
+echo "JOB_INDEX= "$JOB_INDEX >>/mnt/OUT
 OUTPUTDATAFILE=/mnt/xxx.$JOB_INDEX
 #OUTPUTDATAFILE=./xxx.$JOB_INDEX
 INPUTDATAFILE=/mnt/DATAFILE
 #INPUTDATAFILE=./DATAFILE
-echo "Input will be in: "$INPUTDATAFILE
-echo "Output will be in: "$OUTPUTDATAFILE
+echo "Input will be in: "$INPUTDATAFILE >>/mnt/OUT
+echo "Output will be in: "$OUTPUTDATAFILE >>/mnt/OUT
 
 # Cleanup
-#echo "Cleanup..."
+echo "Cleanup..."
 # rm -f /go/DATAFILE
 rm -f $OUTPUTDATAFILE
 
@@ -23,13 +23,12 @@ rm -f $OUTPUTDATAFILE
 # ibmcloud cos object-get --bucket ${BUCKET} --key DATAFILE  --region us-east /go/DATAFILE
 
 # check datafile is OK
-#echo "cat datafile..."
-#cat $INPUTDATAFILE
+echo "cat datafile..." >>/mnt/OUT
+cat $INPUTDATAFILE >>/mnt/OUT
 
 # Process datafile
-#echo "outputfile is "
-#echo $OUTPUTDATAFILE
-cp $INPUTDATAFILE $OUTPUTDATAFILE
+echo "outputfile is " >>/mnt/OUT
+echo $OUTPUTDATAFILE >>/mnt/OUT
 
 exit 0
 
@@ -46,7 +45,7 @@ do
 done < $INPUTDATAFILE
 
 # Show output file
-cat $OUTPUTDATAFILE 
+cat $OUTPUTDATAFILE  >>/mnt/OUT
 
 # Put output datafile to COS
 # echo "Put output datafile to COS..."
