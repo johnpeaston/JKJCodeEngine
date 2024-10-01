@@ -1,19 +1,5 @@
-
 #!/usr/bin/env bash
-
-# Script to help setting up the volume mount for the batch job definition.
-
-# NOTE: The user must select the Code Engine project before running this script. 
-# Usage: add-volume-mount-to-job.sh CE_JOB_NAME MOUNT_NAME MOUNT_PATH
-
-
-# Check whether all required input params are set
-#if [[ -z "$1" || -z "$2" || -z "$3" ]]
-#  then
-#    echo "One or more arguments are missing"
-#    echo "Usage: add-volume-mount-to-job.sh CE_JOB_NAME MOUNT_NAME MOUNT_PATH"
-#    exit 1
-#fi
+# Script to set up the volume mount
 
 set -euo pipefail
 
@@ -21,7 +7,6 @@ set -euo pipefail
 CE_JOB_NAME=jkj-hpc-cosfs1
 MOUNT_NAME=jkj-hpc-cos-bucket1
 MOUNT_PATH=/mnt
-
 
 echo ""
 echo "CE_JOB_NAME: '$CE_JOB_NAME'"

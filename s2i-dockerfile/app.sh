@@ -1,28 +1,17 @@
 #!/bin/sh
-#
-# Test app
-#
 
-# env
 #JOB_INDEX=5
 # echo "JOB_INDEX= "$JOB_INDEX >>/mnt/OUT
+
 OUTPUTDATAFILE=/mnt/xxx.$JOB_INDEX
-#OUTPUTDATAFILE=./xxx.$JOB_INDEX
 INPUTDATAFILE=/mnt/DATAFILE
-#INPUTDATAFILE=./DATAFILE
-# echo "Input will be in: "$INPUTDATAFILE >>/mnt/OUT
-# echo "Output will be in: "$OUTPUTDATAFILE >>/mnt/OUT
 
 # Cleanup
 echo "Cleanup..."
-# rm -f /go/DATAFILE
 rm -f $OUTPUTDATAFILE
 
-# check datafile is OK
-# echo "cat datafile..." >>/mnt/OUT
+# check input and output are OK
 # cat $INPUTDATAFILE >>/mnt/OUT
-
-# Process datafile
 # echo "outputfile is " >>/mnt/OUT
 # echo $OUTPUTDATAFILE >>/mnt/OUT
 
@@ -37,9 +26,6 @@ do
                 echo $INPUTDATA > $OUTPUTDATAFILE
  	fi
 done < $INPUTDATAFILE
-
-# Show output file
-# cat $OUTPUTDATAFILE  >>/mnt/OUT
 
 exit 0
 
