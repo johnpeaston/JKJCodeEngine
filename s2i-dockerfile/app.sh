@@ -15,8 +15,6 @@ rm -f $OUTPUTDATAFILE
 # echo "outputfile is " >>/mnt/OUT
 # echo $OUTPUTDATAFILE >>/mnt/OUT
 
-sleep 10
-
 # Processing datafile...
 while IFS=  read -r line
 do
