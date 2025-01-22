@@ -35,4 +35,4 @@ if ! [[ "$(cat out)" == "Hello World" ]]; then
 fi
 
 # Clean up
-clean
+# clean
