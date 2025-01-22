@@ -1,0 +1,57 @@
+#!/bin/bash
+
+# Define our ICR Namespace env var for later use
+ID=$(ibmcloud ce project current | sed -n "s/^Subdomain: *\([^ ]*\).*$/\1/p")
+# ICR_NS=s2i-d-${ID:0:12}
+ICR_NS=jkj-codeengine-icr-ns
+
+# Clean up previous run
+function clean() {
+  # set +ex
+  echo "Cleaning up from previous builds..."
+  (
+  # ibmcloud cr namespace-rm "${ICR_NS}" -f
+  ibmcloud ce job delete -n jkj-hpc-cosfs1 -f
+  # ibmcloud ce registry delete -n s2i-dicr -f
+  ibmcloud ce buildrun delete -n jkj-codengine-drun -f
+  ibmcloud ce build delete -n jkj-codengine-dbuild -f
+  # ibmcloud iam api-keys | grep s2i-dapi | sed "s/.*\(ApiKey\)/\1/" | while read a
+  # do
+  #  ibmcloud iam api-key-delete -f $a
+  # done
+  #rm -f out .ce-reg-secret || true
+  ) > /dev/null 2>&1
+}
+
+clean
+[[ "$1" == "clean" ]] && exit 0
+
+# Grab the ICR server location based no our region
+# export ICR=$(ibmcloud cr info | sed -n 's/.*Registry   *\(.*icr.io\).*/\1/p')
+export ICR="uk.icr.io"
+
+# set -ex
+
+# Create an ICR namespace to hold our new image
+# ibmcloud cr namespace-add $ICR_NS
+
+# Create an apikey, put it in a registry secret. Used to push/pull image to ICR
+# ibmcloud iam api-key-create jkj-codeengine-apikey | \
+# grep "API Key" | sed 's/^.*Key  *//' | sed "s/ *$//" > .ce-reg-secret
+
+# ibmcloud ce registry create -n jkj-codengine-dicr -s $ICR -u iamapikey \
+#  --password-from-file .ce-reg-secret
+
+# Define the build of this dir in this github repo
+echo "Define new build..."
+ibmcloud ce build create -n jkj-codengine-dbuild -i "$ICR/${ICR_NS}/app" --rs jkj-codengine-dicr \
+  --source https://github.com/johnpeaston/JKJCodeEngine --context-dir s2i-dockerfile
+
+# Now kick off the build itself
+echo "Build new container image..."
+ibmcloud ce buildrun submit -n jkj-codengine-drun --build jkj-codengine-dbuild --wait
+
+# Create a job from the image we just built
+echo "Create new job from container image..."
+# ibmcloud ce job create -n jkj-hpc-cosfs1 --image "$ICR/${ICR_NS}/app" --rs jkj-codengine-dicr
+ibmcloud ce application create -n jkj-hpc-app --image "$ICR/${ICR_NS}/app" --rs jkj-codengine-dicr
